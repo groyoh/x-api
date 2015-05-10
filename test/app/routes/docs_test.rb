@@ -12,14 +12,7 @@ class AppRoutesDocsTest < Minitest::Test
     get '/docs/unknown'
 
     assert_equal 404, last_response.status
-    assert_equal '{"error":"Track unknown not found."}', last_response.body
-  end
-
-  def test_error_on_nonexistent_documentation
-    get '/docs/assembly'
-
-    assert_equal 404, last_response.status
-    assert_equal '{"error":"Documentation for Assembly not found."}', last_response.body
+    assert_equal '{"error":"Documentation for track unknown was not found."}', last_response.body
   end
 
   def test_get_docs_for_language
